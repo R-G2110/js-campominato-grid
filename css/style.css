@@ -13,21 +13,33 @@
 }
 
 .container {
-	width: 700px;
+	width: 600px;
 	display: flex;
 	flex-wrap: wrap;
-	height: 700px;
+	height: 600px;
 	background-color: green;
 }
 
 .square {
-	width: calc(100% / 10);
 	aspect-ratio: 1/1;
 	border: 2px solid white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	color: white;
+	cursor: pointer;
+}
+
+.square.hard {
+	width: calc(100% / 10);
+}
+
+.square.normal {
+	width: calc(100% / 9);
+}
+
+.square.easy {
+	width: calc(100% / 7);
 }
 
 .square.clicked {

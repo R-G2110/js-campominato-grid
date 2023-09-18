@@ -1,22 +1,46 @@
 const container = document.querySelector('.container');
-const n = document.getElementById('input-number');
+const play = document.getElementById('btn-play');
+let n;
+
+
+play.addEventListener('click', function(){
+
+	reset();
+	inputDifficulty = document.getElementById('input-difficulty');
+	const difficulty = inputDifficulty.value;
+	switch (difficulty){
+		case "hard":
+		n = 10;
+		break;
+		case "normal":
+		n = 9;
+		break;
+		case "easy":
+		n = 7;
+		break;
+		default:
+		n = 0;
+	}
+
+	console.log('n: '+n);
+	console.log('difficulty: '+difficulty);
+
+
+	for (let i = 1; i <= n*n; i++){
+		const square = squareCreation(i);
+		square.classList.add(difficulty);
+	
+		square.addEventListener('click', function(){
+			this.classList.toggle('clicked');
+			console.log(this.innerHTML);
+		})
+		container.append(square);
+	}
+});
 
 
 
 
-
-
-
-
-
-for (let i = 1; i <= n; i++){
-  const square = squareCreation(i);
-
-  square.addEventListener('click', function(){
-    this.classList.toggle('clicked');
-  })
-  container.append(square);
-}
 
 /********************FUNCTIONS********************************/
 
