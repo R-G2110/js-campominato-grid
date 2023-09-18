@@ -1,0 +1,46 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.main-wrapper {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: blueviolet;
+}
+
+.container {
+	width: 700px;
+	display: flex;
+	flex-wrap: wrap;
+	height: 700px;
+	background-color: green;
+}
+
+.square {
+	width: calc(100% / 10);
+	aspect-ratio: 1/1;
+	border: 2px solid white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+.square.clicked {
+	background-color: yellow;
+}
+
+.square.clicked span {
+	display: none;
+}
+
+.square.clicked.odd {
+	background-color: orangered;
+}
+.square.clicked.even {
+	background-color: red;
+}
