@@ -55,3 +55,8 @@ header {
 .square.bomb {
 	background-color: red;
 }
+
+.disable-div {
+	pointer-events: none;
+	opacity: .6;
+}

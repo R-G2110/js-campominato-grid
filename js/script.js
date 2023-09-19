@@ -2,10 +2,11 @@ const container = document.querySelector('.container');
 const play = document.getElementById('btn-play');
 let n;
 const bombArray = [];
+let points;
 
 
 play.addEventListener('click', function(){
-
+	points = 0; 
 	reset();
 	start();
 	const square = document.querySelector('.square');
@@ -64,12 +65,17 @@ function start (){
 		square.classList.add(difficulty);
 	
 		square.addEventListener('click', function(){
-			this.classList.toggle('clicked');
+			this.classList.add('clicked');
 			console.log('_squareID: '+this._squareID);
 			if (bombArray.includes(this._squareID)){
-						this.classList.add('bomb');
-						console.log('square: '+this);
-					}
+				this.classList.add('bomb');
+				console.log('square: '+this);
+				console.log('Hai perso!');
+				container.classList.add('disable-div');
+			} else points++;
+			console.log('points: '+points);
+			// square.removeEventListener('click', function());
+
 		})
 		container.append(square);
 
