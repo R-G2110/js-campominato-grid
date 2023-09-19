@@ -2,11 +2,14 @@ const container = document.querySelector('.container');
 const play = document.getElementById('btn-play');
 let n;
 const bombArray = [];
-let points;
+let points = 0;
+const punteggio = document.getElementById('punteggio');
 
 
 play.addEventListener('click', function(){
+	container.classList.remove('disable-div');
 	points = 0; 
+	punteggio.innerHTML = 'Punteggio: ' + points
 	reset();
 	start();
 	const square = document.querySelector('.square');
@@ -20,12 +23,7 @@ play.addEventListener('click', function(){
 
 
 
-	// for (let i = 1; i <= n*n; i++){
-	// 	if (bombArray.includes(i)){
-	// 		square.getElementById.('_squareID');
-	// 		console.log('square: '+square);
-	// 	}
-	// }
+	
 });
 
 
@@ -33,16 +31,10 @@ play.addEventListener('click', function(){
 
 
 /********************FUNCTIONS********************************/
-// function verifyBombArray (num, array){
-// 	for(let i = 0; i < array.length; i++)
-// 	if (num === array[i]) ? num = randomIndex() : array.push;
-	
-// };
 
 
-function insertBombArray (){
-	
-};
+
+
 
 
 
@@ -62,9 +54,13 @@ function start (){
 
 	for (let i = 1; i <= n*n; i++){
 		const square = squareCreation(i);
+		const esito = document.getElementById('esito');
 		square.classList.add(difficulty);
-	
+		let message;
+		esito.classList.add('d-none');
+
 		square.addEventListener('click', function(){
+			this.removeEventListener('click', square);
 			this.classList.add('clicked');
 			console.log('_squareID: '+this._squareID);
 			if (bombArray.includes(this._squareID)){
@@ -72,26 +68,18 @@ function start (){
 				console.log('square: '+this);
 				console.log('Hai perso!');
 				container.classList.add('disable-div');
+				message = 'Hai perso!';
+				esito.classList.remove('d-none');
+
 			} else points++;
 			console.log('points: '+points);
-			// square.removeEventListener('click', function());
-
+			punteggio.innerHTML = "Punteggio: "+points;
+			esito.innerHTML = message;
 		})
 		container.append(square);
-
-		
 		
 	}
-	// const bombArray = [];
-	// while (bombArray.length < 16) {
-	// 	bomb = randomIndex(1, n);
-	// 	if (!bombArray.includes(bomb)){
-	// 		bombArray.push(bomb);
-	// 		this.classList.add('bomb');
-	// 	} 
-	// }
 
-	// console.log(bombArray);
 
 }
 

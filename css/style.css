@@ -4,6 +4,13 @@
 	box-sizing: border-box;
 }
 
+
+h2,
+h3{
+	color: white;
+	margin: 20px 0;
+}
+
 header {
 	height: 40px;
 	text-align: center;
@@ -13,6 +20,7 @@ header {
 .main-wrapper {
 	height: 100vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-color: blueviolet;
@@ -24,6 +32,10 @@ header {
 	flex-wrap: wrap;
 	height: 600px;
 	background-color: green;
+}
+
+.d-none {
+	display: none;
 }
 
 .square {
@@ -50,6 +62,7 @@ header {
 
 .square.clicked {
 	background-color: blueviolet;
+	pointer-events: none;
 }
 
 .square.bomb {
