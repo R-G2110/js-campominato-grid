@@ -4,6 +4,12 @@
 	box-sizing: border-box;
 }
 
+header {
+	height: 40px;
+	text-align: center;
+	padding: 10px;
+}
+
 .main-wrapper {
 	height: 100vh;
 	display: flex;
@@ -30,7 +36,7 @@
 	cursor: pointer;
 }
 
-.square.hard {
+.square.easy {
 	width: calc(100% / 10);
 }
 
@@ -38,21 +44,14 @@
 	width: calc(100% / 9);
 }
 
-.square.easy {
+.square.hard {
 	width: calc(100% / 7);
 }
 
 .square.clicked {
-	background-color: yellow;
+	background-color: blueviolet;
 }
 
-.square.clicked span {
-	display: none;
-}
-
-.square.clicked.odd {
-	background-color: orangered;
-}
-.square.clicked.even {
+.square.bomb {
 	background-color: red;
 }
